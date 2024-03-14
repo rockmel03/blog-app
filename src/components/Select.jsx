@@ -5,7 +5,7 @@ const Select = ({ options, label, className = "", ...props }, ref) => {
   return (
     <div className="w-full">
       {label && <label htmlFor={id}>{label}</label>}
-      <select id={id} ref={ref} className={`${className}`} {...props}>
+      <select id={id} ref={ref} className={`text-zinc-500 ${className}`} {...props}>
         {options?.map((option) => (
           <option key={option} value={option}>
             {option}

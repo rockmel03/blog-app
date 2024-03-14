@@ -13,7 +13,7 @@ const LogoutBtn = () => {
     })
   }
 
-  return <button className="inline-block px-4 py-2 bg-orange-400">Logout</button>;
+  return <button onClick={logoutHandler} className="inline-block px-4 py-2 bg-orange-400">Logout</button>;
 };
 
 export default LogoutBtn; 

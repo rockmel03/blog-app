@@ -12,7 +12,7 @@ const Input = React.forwardRef(function Input(
         id={id}
         ref={ref}
         type={type}
-        className={`${className}`}
+        className={`bg-transparent ${className}`}
         {...props}
       />
     </div>

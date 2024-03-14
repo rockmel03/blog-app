@@ -16,20 +16,20 @@ export class Service {
         this.bucket = new Storage(this.client)
     }
 
-    async createPost({ title, slug, content, featuredImg, status, userId }) {
+    async createPost({ title, slug, content, featuredImage, status, userid }) {
         try {
             return await this.database.createDocument(conf.appWriteDatabaseId, conf.appWriteCollectionId, slug, {
-                title, content, featuredImg, status, userId
+                title, content, featuredImage, status, userid
             })
         } catch (error) {
             console.log("Error appwrite :: createPost :: ", error)
         }
     }
 
-    async updatePost(slug, { title, content, featuredImg, status }) {
+    async updatePost(slug, { title, content, featuredImage, status }) {
         try {
             return await this.database.updateDocument(conf.appWriteDatabaseId, conf.appWriteCollectionId, slug, {
-                title, content, featuredImg, status
+                title, content, featuredImage, status
             })
         } catch (error) {
             console.log("Error appwrite :: updatePost :: ", error)
@@ -38,11 +38,12 @@ export class Service {
 
     async deletePost(slug) {
         try {
-            await this.database.deleteDocument(
+           const s = await this.database.deleteDocument(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
                 slug
             )
+            console.log(s)
             return true
         }
         catch (error) {
@@ -53,26 +54,26 @@ export class Service {
 
     async getPost(slug) {
         try {
-            await this.database.getDocument(
+            return await this.database.getDocument(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
                 slug
             )
-            return true
+
         } catch (error) {
             console.log("Error appwrite :: deletePost :: ", error)
             return false
         }
     }
-    async getPosts(queries = [Query.equal('status', 'active')]) {
+    async getPosts(query = [Query.equal('status', ["active"]),]) {
         try {
             return await this.database.listDocuments(
                 conf.appWriteDatabaseId,
                 conf.appWriteCollectionId,
-                queries
+                query
             )
         } catch (error) {
-            console.log(error)
+            console.log("Appwrite serive :: getPosts :: error", error);
             return false
         }
     }
@@ -93,23 +94,22 @@ export class Service {
     }
     async deleteFile(fileId) {
         try {
-            await this.bucket.deleteFile(
+            return await this.bucket.deleteFile(
                 conf.appWriteBucketId,
                 fileId
             )
 
-            return true
+
         } catch (error) {
             console.log(error)
             return false
         }
     }
     getFilePreview(fileId) {
-        return this.bucket.getFile(
+        return this.bucket.getFilePreview(
             conf.appWriteBucketId,
             fileId
         )
-
     }
 }
 
