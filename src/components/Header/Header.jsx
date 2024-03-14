@@ -35,16 +35,16 @@ const Header = () => {
   ];
 
   return (
-    <header>
+    <header className="bg-[#1d3557] sticky top-0 z-50">
       <Container>
-        <nav className="flex items-center justify-between h-[10vh] border-b ">
+        <nav className="flex items-center justify-between h-[10vh] ">
           <div>
             <Link to={"/"}>
               <Logo />
             </Link>
           </div>
 
-          <ul className="flex gap-3">
+          <ul className="flex items-center gap-3">
             {navItems.map(
               (item, index) =>
                 item.active && (

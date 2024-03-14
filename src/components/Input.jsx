@@ -7,12 +7,12 @@ const Input = React.forwardRef(function Input(
   const id = useId();
   return (
     <div className="w-full">
-      {label && <label htmlFor={id}></label>}
+      {label && <label htmlFor={id}>{label}</label>}
       <input
         id={id}
         ref={ref}
         type={type}
-        className={`bg-transparent ${className}`}
+        className={` w-full mt-2 bg-zinc-700 rounded-md py-3 px-2 ${className}`}
         {...props}
       />
     </div>

@@ -15,7 +15,7 @@ const AllPosts = () => {
   return posts.length > 0 ? (
     <div className="w-full py-8">
       <Container>
-        <div className="flex flex-wrap">
+        <div className="flex gap-3 flex-wrap">
           {posts.map((post) => (
             <PostCard key={post.$id} {...post} />
           ))}

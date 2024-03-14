@@ -77,8 +77,8 @@ const PostForm = ({ post }) => {
   }, [watch, slugTransform, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="w-2/3 px-2">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap justify-between">
+      <div className="w-[60%] px-2">
         <Input
           label="Title :"
           placeholder="Title"
@@ -103,7 +103,7 @@ const PostForm = ({ post }) => {
           defaultValue={getValues("content")}
         />
       </div>
-      <div className="w-1/3 px-2">
+      <div className="w-[35%] px-2">
         <Input
           label="Featured Image :"
           type="file"
@@ -129,7 +129,7 @@ const PostForm = ({ post }) => {
         <Button
           type="submit"
           bgColor={post ? "bg-green-500" : undefined}
-          className="w-full"
+          className="w-full rounded-md font-semibold text-xl active:scale-[.9] hover:bg-zinc-400"
         >
           {post ? "Update" : "Submit"}
         </Button>

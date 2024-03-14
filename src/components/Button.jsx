@@ -11,7 +11,7 @@ const Button = ({
   return (
     <button
       type={type}
-      className={`inline-block px-4 py-3 ${bgColor} ${textColor} ${className}`}
+      className={`inline-block px-4 py-3 rounded-md font-medium ${bgColor} ${textColor} ${className}`}
       {...props}
     >
       {children}

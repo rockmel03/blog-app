@@ -19,7 +19,7 @@ export default function App() {
   }, []);
 
   return !loading ? (
-    <div className="w-screen h-screen bg-zinc-950 text-white overflow-y-auto">
+    <div className="w-screen h-screen bg-[#14213d] text-white overflow-y-auto">
       <div className="w-full h-full flex flex-col justify-between">
         <Header />
         <Outlet />
